@@ -1,0 +1,2 @@
+kubectl create service nodeport khalims-heart --tcp=80:80
+
