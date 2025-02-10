@@ -1,4 +1,4 @@
-package com.horadrim.khalims.brain.service;
+package com.horadrim.khalims.brain.service.aop;
 
 public interface AspectService {
     public void handle();

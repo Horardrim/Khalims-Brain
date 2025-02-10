@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.horadrim.khalims.brain.service.AspectService;
-import com.horadrim.khalims.brain.service.PointCutAspectServiceImpl;
+import com.horadrim.khalims.brain.service.aop.AspectService;
+import com.horadrim.khalims.brain.service.aop.PointCutAspectServiceImpl;
 
 @RestController
 public class AspectController {
