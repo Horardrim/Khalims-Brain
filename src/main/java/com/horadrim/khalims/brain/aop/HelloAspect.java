@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class HelloAspect {
-    @Before("execution(public void com.horadrim.khalims.brain.service.AspectService.handle())")
+    @Before("execution(public void com.horadrim.khalims.brain.service.aop.AspectService.handle())")
     public void beforeMethodExecution() {
         System.out.print("before calling method with execution statement\n");
     }

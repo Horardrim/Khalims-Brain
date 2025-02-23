@@ -1,4 +1,4 @@
-package com.horadrim.khalims.brain.configuration;
+package com.horadrim.khalims.brain.configuration.aop;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;

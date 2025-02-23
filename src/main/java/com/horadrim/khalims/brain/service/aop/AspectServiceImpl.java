@@ -1,14 +1,17 @@
-package com.horadrim.khalims.brain.service;
+package com.horadrim.khalims.brain.service.aop;
 
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class AspectServiceImpl implements AspectService {
     public void handle() {
-        System.out.print("calling handle method\n");
+        log.info("calling handle method");
     }
 
     public void handleAround() {
-        System.out.print("calling handleAround method\n");
+        log.info("calling handleAround method\n");
     }
 }

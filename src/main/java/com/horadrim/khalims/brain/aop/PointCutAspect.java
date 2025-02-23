@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class PointCutAspect {
-    @Pointcut("execution(public void com.horadrim.khalims.brain.service.PointCutAspectServiceImpl.handle())")
+    @Pointcut("execution(public void com.horadrim.khalims.brain.service.aop.PointCutAspectServiceImpl.handle())")
     public void pointCutBefore() {
         System.out.print("calling pointCutBefore\n");
     }
