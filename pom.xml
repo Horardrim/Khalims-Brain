@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.horadrim.khalims.brain</groupId>
   <artifactId>Khalims-Brain</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <name>Khalims-Brain</name>
   <description>A Service based on Spring Boot3</description>
   <url/>
@@ -60,7 +60,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j2</artifactId>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
@@ -68,6 +68,11 @@
       <groupId>org.springframework.security</groupId>
       <artifactId>spring-security-test</artifactId>
       <scope>test</scope>
+    </dependency> -->
+    <!-- Spring Boot RabbitMQ -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
     <!--  lombok  -->
     <dependency>
