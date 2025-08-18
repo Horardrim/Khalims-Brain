@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.horadrim.khalims.brain</groupId>
   <artifactId>Khalims-Brain</artifactId>
-  <version>1.4.0</version>
+  <version>1.5.0</version>
   <name>Khalims-Brain</name>
   <description>A Service based on Spring Boot3</description>
   <url/>
@@ -100,6 +100,16 @@
     <dependency>
       <groupId>org.flywaydb</groupId>
       <artifactId>flyway-database-postgresql</artifactId>
+    </dependency>
+    <!-- Spring Boot Redis -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-redis</artifactId>
+    </dependency>
+    <!-- 连接池（任选其一：Jedis 或 Lettuce）-->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-pool2</artifactId>
     </dependency>
     <!--  lombok  -->
     <dependency>
