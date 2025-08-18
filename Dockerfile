@@ -12,7 +12,7 @@ COPY target/Khalims-Brain-1.6.2.jar app.jar
 
 
 # 暴露80端口
-EXPOSE 80
+EXPOSE 8080
 
 # 运行jar文件
 ENTRYPOINT ["java", "-jar", "app.jar", "--server.port=8080"]
