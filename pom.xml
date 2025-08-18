@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.horadrim.khalims.brain</groupId>
   <artifactId>Khalims-Brain</artifactId>
-  <version>1.5.0</version>
+  <version>1.6.0</version>
   <name>Khalims-Brain</name>
   <description>A Service based on Spring Boot3</description>
   <url/>
@@ -126,24 +126,10 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
-      <!-- <plugin>
-        <groupId>com.spotify</groupId>
-        <artifactId>docker-maven-plugin</artifactId>
-        <configuration>
-          <imageName>${project.artifactId}</imageName>
-          <imageTags>
-            <tag>${project.version}</tag>
-          </imageTags>
-          <dockerDirectory>./</dockerDirectory>
-          <resources>
-            <resource>
-              <targetPath>/</targetPath>
-              <directory>${project.build.directory}</directory>
-              <include>${project.build.finalName}.jar</include>
-            </resource>
-          </resources>
-        </configuration>
-      </plugin> -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 
