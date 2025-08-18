@@ -58,10 +58,55 @@
 
         <form th:action="@{/doLogin}" method="post">
             <!-- 用户名 -->
-            <div class="form-floating">
-                <input type="text" id="username" name="username" class="form-control" placeholder="用户名">
-                <label for="username"><i class="fas fa-user me-1"></i>用户名</label>
+            <div class="position-relative mb-3">
+                <div class="form-floating">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="用户名" data-bs-toggle="tooltip" data-bs-placement="top"/>
+                    <label for="username"><i class="fas fa-user me-1"></i>用户名</label>
+                </div>
+                <div id="username-tooltip" class="position-absolute"
+                    style="top:-34px; left:0; z-index:1055;
+                        display:none; padding:4px 8px;
+                        background:#333; color:#fff;
+                        white-space: pre-line;
+                        border-radius:4px; font-size:12px;">
+                </div>
             </div>
+            <script th:inline="javascript">
+                /* 取得上下文路径，防止部署到子目录时 404 */
+                const ctx = /*[[@{/}]]*/ '';
+
+                /* 工具：获取光标索引 */
+                function getCaretPos(el) {
+                    return el.selectionStart;
+                }
+
+                /* 工具：发送 POST */
+                function sendCaret() {
+                    fetch(ctx + 'api/caret', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: input.value })
+                    }).then(r => r.json())
+                    .then(data => showTooltip(data.join("\n")));
+                }
+
+                /* 实时计算并显示 */
+                const tooltip = document.getElementById('username-tooltip');
+                function showTooltip(text) {
+                    if (!text) {
+                        tooltip.style.display = 'none';
+                        return;
+                    }
+                    tooltip.innerText = text;
+                    tooltip.style.display = 'block';
+                }
+
+                const input = document.getElementById('username');
+                /* 实时提示逻辑：这里示例为长度校验 */
+                input.addEventListener('input', () => {
+                    sendCaret();
+                });
+            </script>
 
             <!-- 密码 -->
             <div class="form-floating">
