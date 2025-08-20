@@ -1,12 +1,19 @@
 package com.horadrim.khalims.brain.utils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class Trie {
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.Data;
+
+@Data
+public class Trie implements Serializable {
+
     private final TrieNode root = new TrieNode();
 
     public void insert(String word) {
@@ -53,8 +60,10 @@ public class Trie {
 
     private static class TrieNode {
 
+        @JsonProperty("end_of_str")
         private boolean isEndOfStr_;
 
+        @JsonProperty("next")
         private Map<Character, TrieNode> next_ = new HashMap<>();
     }
 }

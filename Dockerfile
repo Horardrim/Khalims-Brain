@@ -8,7 +8,7 @@ LABEL maintainer="524948250@qq.com"
 WORKDIR /app
 
 # 将编译好的jar文件复制到/app目录下
-COPY target/Khalims-Brain-1.7.1.jar app.jar
+COPY target/Khalims-Brain-1.7.2.jar app.jar
 
 
 # 暴露80端口

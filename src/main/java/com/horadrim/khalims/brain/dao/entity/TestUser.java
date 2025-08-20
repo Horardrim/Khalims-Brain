@@ -23,7 +23,8 @@ public class TestUser {
     private String password;
 
     public TestUser() {}
-    public TestUser(String username, String password) {
+    public TestUser(Integer id, String username, String password) {
+        this.id = id;
         this.username = username;
         this.password = password;
     }
