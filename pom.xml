@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.horadrim.khalims.brain</groupId>
   <artifactId>Khalims-Brain</artifactId>
-  <version>1.7.2</version>
+  <version>1.8.0</version>
   <name>Khalims-Brain</name>
   <description>A Service based on Spring Boot3</description>
   <url/>
@@ -121,6 +121,17 @@
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
     </dependency>
+    <!-- elastic search -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+    </dependency>
+    <!-- 官方新 Java API Client（可选，替代旧 High Level Client） -->
+    <dependency>
+      <groupId>co.elastic.clients</groupId>
+      <artifactId>elasticsearch-java</artifactId>
+      <version>8.12.0</version>
+    </dependency>
     <!--  lombok  -->
     <dependency>
       <groupId>org.projectlombok</groupId>
@@ -132,10 +143,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
