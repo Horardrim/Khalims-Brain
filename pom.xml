@@ -10,7 +10,7 @@
   </parent>
   <groupId>com.horadrim.khalims.brain</groupId>
   <artifactId>Khalims-Brain</artifactId>
-  <version>1.9.0</version>
+  <version>1.10.0</version>
   <name>Khalims-Brain</name>
   <description>A Service based on Spring Boot3</description>
   <url/>
@@ -92,7 +92,7 @@
       <artifactId>spring-boot-starter-amqp</artifactId>
     </dependency>
 
-        <!-- JPA + Hibernate -->
+    <!-- JPA + Hibernate -->
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
