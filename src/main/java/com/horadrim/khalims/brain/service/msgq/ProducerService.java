@@ -29,4 +29,15 @@ public class ProducerService {
                     return message;
                 });
     }
+
+    public void sendToExchangeWithRoutingKey(String exchange, String routingKey, String msg) {
+        rabbitTemplate.convertAndSend(
+                exchange,
+                routingKey,
+                msg,
+                (MessagePostProcessor) message -> {
+                    message.getMessageProperties().setMessageId(UUID.randomUUID().toString());
+                    return message;
+                });
+    }
 }

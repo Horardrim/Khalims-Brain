@@ -11,6 +11,7 @@ import java.time.Instant;
 
 import com.horadrim.khalims.brain.service.msgq.ProducerService;
 import com.horadrim.khalims.brain.api.messages.Message;
+import com.horadrim.khalims.brain.configuration.msgq.RabbitMQConstants;
 
 @RestController
 public class RabbitMQController {
@@ -22,9 +23,16 @@ public class RabbitMQController {
     private ObjectMapper mapper;
 
     @RequestMapping("/rabbitmq")
-    public String sayHello() throws JsonProcessingException {
+    public String rabbitmq() throws JsonProcessingException {
         Message sampleMsg = new Message("khalims-brain", Instant.now().toEpochMilli());
         producerService.send(mapper.writeValueAsString(sampleMsg));
         return "Hello It's rabbitmq page.";
+    }
+
+    @RequestMapping("/rabbitmq/topic")
+    public String topic() throws JsonProcessingException {
+        Message sampleMsg = new Message("khalims-brain", Instant.now().toEpochMilli());
+        producerService.sendToExchangeWithRoutingKey(RabbitMQConstants.TOPIC_EXCHANGE, "hdm.talrasha.routing", mapper.writeValueAsString(sampleMsg));
+        return "topic exchange.";
     }
 }
