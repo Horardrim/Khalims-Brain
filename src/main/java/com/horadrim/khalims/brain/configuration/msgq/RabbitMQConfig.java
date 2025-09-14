@@ -20,40 +20,14 @@ import lombok.extern.slf4j.Slf4j;
 public class RabbitMQConfig {
     /** direct exchange **/
     @Bean
-    public Queue queue() {
-        return new Queue(RabbitMQConstants.QUEUE_NAME, true);
-    }
-
-    @Bean
     public DirectExchange exchange() {
         return new DirectExchange(RabbitMQConstants.EXCHANGE, true, false);
-    }
-
-    @Bean
-    public Binding binding() {
-        return BindingBuilder
-                .bind(queue())
-                .to(exchange())
-                .with(RabbitMQConstants.ROUTING_KEY);
     }
 
     /** topic exchange **/
     @Bean
     public TopicExchange topicExchange() {
         return new TopicExchange(RabbitMQConstants.TOPIC_EXCHANGE, true, false);
-    }
-
-    @Bean
-    public Queue topicQueue() {
-        return new Queue(RabbitMQConstants.QUEUE_NAME_TOPIC_EXCHANGE, true);
-    }
-
-    @Bean
-    public Binding topicExchangeBind() {
-        return BindingBuilder
-                .bind(topicQueue())
-                .to(topicExchange())
-                .with(RabbitMQConstants.TOPIC_EXCHANGE_ROUTING_KEY);
     }
 
     @Bean
