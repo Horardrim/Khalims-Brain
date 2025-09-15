@@ -58,11 +58,6 @@ public class RabbitMQConfig {
     }
 
     @Bean
-    public RabbitAdmin rabbitAdmin(ConnectionFactory cf) {
-        return new RabbitAdmin(cf);
-    }
-
-    @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
         template.setMandatory(true);
