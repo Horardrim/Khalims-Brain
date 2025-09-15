@@ -25,6 +25,7 @@ public class RabbitMQConfig {
         return new DirectExchange(RabbitMQConstants.EXCHANGE, true, false);
     }
 
+    @Bean
     public Queue queue() {
         return new Queue(RabbitMQConstants.QUEUE_NAME, true);
     }
