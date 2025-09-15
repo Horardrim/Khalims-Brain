@@ -9,6 +9,7 @@ import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,42 +19,47 @@ import lombok.extern.slf4j.Slf4j;
 @Configuration
 @Slf4j
 public class RabbitMQConfig {
-    // /** direct exchange **/
-    // @Bean
-    // public DirectExchange exchange() {
-    //     return new DirectExchange(RabbitMQConstants.EXCHANGE, true, false);
-    // }
+    /** direct exchange **/
+    @Bean
+    public DirectExchange exchange() {
+        return new DirectExchange(RabbitMQConstants.EXCHANGE, true, false);
+    }
 
-    // public Queue queue() {
-    //     return new Queue(RabbitMQConstants.QUEUE_NAME, true);
-    // }
+    public Queue queue() {
+        return new Queue(RabbitMQConstants.QUEUE_NAME, true);
+    }
 
-    // @Bean
-    // public Binding binding() {
-    //     return BindingBuilder
-    //             .bind(queue())
-    //             .to(exchange())
-    //             .with(RabbitMQConstants.ROUTING_KEY);
-    // }
+    @Bean
+    public Binding binding() {
+        return BindingBuilder
+                .bind(queue())
+                .to(exchange())
+                .with(RabbitMQConstants.ROUTING_KEY);
+    }
 
-    // /** topic exchange **/
-    // @Bean
-    // public TopicExchange topicExchange() {
-    //     return new TopicExchange(RabbitMQConstants.TOPIC_EXCHANGE, true, false);
-    // }
+    /** topic exchange **/
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange(RabbitMQConstants.TOPIC_EXCHANGE, true, false);
+    }
 
-    // @Bean
-    // public Queue topicQueue() {
-    //     return new Queue(RabbitMQConstants.QUEUE_NAME_TOPIC_EXCHANGE, true);
-    // }
+    @Bean
+    public Queue topicQueue() {
+        return new Queue(RabbitMQConstants.QUEUE_NAME_TOPIC_EXCHANGE, true);
+    }
 
-    // @Bean
-    // public Binding topicExchangeBind() {
-    //     return BindingBuilder
-    //             .bind(topicQueue())
-    //             .to(topicExchange())
-    //             .with(RabbitMQConstants.TOPIC_EXCHANGE_ROUTING_KEY);
-    // }
+    @Bean
+    public Binding topicExchangeBind() {
+        return BindingBuilder
+                .bind(topicQueue())
+                .to(topicExchange())
+                .with(RabbitMQConstants.TOPIC_EXCHANGE_ROUTING_KEY);
+    }
+
+    @Bean
+    public RabbitAdmin rabbitAdmin(ConnectionFactory cf) {
+        return new RabbitAdmin(cf);
+    }
 
     @Bean
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
