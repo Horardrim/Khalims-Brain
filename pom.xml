@@ -119,7 +119,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-redis</artifactId>
     </dependency>
-    <!-- 连接池（任选其一：Jedis 或 Lettuce）-->
+    <!-- 连接池(任选其一: Jedis 或 Lettuce)-->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-pool2</artifactId>
@@ -139,16 +139,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
     </dependency>
-    <!-- 官方新 Java API Client（可选，替代旧 High Level Client） -->
+    <!-- 官方新 Java API Client(可选,替代旧 High Level Client) -->
     <dependency>
       <groupId>co.elastic.clients</groupId>
       <artifactId>elasticsearch-java</artifactId>
       <version>8.12.0</version>
-    </dependency>
-    <!--  eureka client  -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
     </dependency>
     <!--  lombok  -->
     <dependency>
